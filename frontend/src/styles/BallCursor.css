@@ -1,0 +1,56 @@
+/* Fluffy, Jelly Ball Cursor */
+.ball-cursor {
+  position: fixed;
+  width: 13px; /* Slightly bigger for a softer look */
+  height: 13px;
+  background-color: rgba(255, 255, 255, 0.8); /* Softer white */
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  
+  /* Smooth, jelly-like movement */
+  transition: transform 0.1s ease-out, opacity 0.2s ease-out;
+  will-change: transform;
+  
+  /* Fluffy glow effect */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8),
+              0 0 50px rgba(255, 255, 255, 0.5);
+
+  transform-origin: center;
+}
+
+/* Jelly-like effect */
+.ball-cursor.jelly {
+  animation: jelly-bounce 0.6s ease-in-out infinite alternate;
+}
+
+/* Fluffy floating effect */
+.ball-cursor.fluffy {
+  animation: floaty 2s infinite ease-in-out;
+}
+
+/* Elastic jelly movement */
+@keyframes jelly-bounce {
+  0% {
+      transform: scale(1, 1);
+  }
+  50% {
+      transform: scale(1.2, 0.8); /* Stretch horizontally */
+  }
+  100% {
+      transform: scale(0.8, 1.2); /* Stretch vertically */
+  }
+}
+
+/* Soft floating effect */
+@keyframes floaty {
+  0% {
+      transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+      transform: translate(-50%, -55%) scale(1.1);
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(1);
+  }
+}
