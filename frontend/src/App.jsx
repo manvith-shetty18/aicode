@@ -27,7 +27,7 @@ function App() {
         const savedUser = JSON.parse(localStorage.getItem("user"));
         if (!savedUser?.email) return;
 
-        const response = await axios.get(`http://localhost:5000/user/${savedUser.email}`);
+        const response = await axios.get(`https://aicodeproject.onrender.com/user/${savedUser.email}`);
         if (response.data) {
           setUser(response.data);
           localStorage.setItem("user", JSON.stringify(response.data));
@@ -45,7 +45,7 @@ function App() {
 
   async function reviewCode() {
     try {
-      const response = await axios.post("http://localhost:5000/ai/get-review", { code });
+      const response = await axios.post("https://aicodeproject.onrender.com/ai/get-review", { code });
       setReview(response.data);
     } catch (error) {
       console.error("Code Review Error:", error);
@@ -62,7 +62,7 @@ function App() {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/login", { email, password });
+      const response = await axios.post("https://aicodeproject.onrender.com/api/login", { email, password });
       if (response.data.success) {
         const { username, email, isAdmin } = response.data.user;
         const newUser = { username, email, isAdmin };
@@ -79,7 +79,7 @@ function App() {
 
   const handleSignup = async (email, password, role = "user") => {
     try {
-      const response = await fetch("http://localhost:5000/api/signup", {
+      const response = await fetch("https://aicodeproject.onrender.com/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role }),
