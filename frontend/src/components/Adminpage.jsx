@@ -32,7 +32,7 @@ const AdminPage = ({ onLogout }) => {
 
     setDeleting(id);
     try {
-      await axios.delete(`http://localhost:5000/api/users/${id}`);
+      await axios.delete(`https://aicodeproject.onrender.com/api/users/${id}`);
       setUsers(users.filter((user) => user._id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);
