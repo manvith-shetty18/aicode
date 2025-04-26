@@ -17,7 +17,7 @@ const AdminPage = ({ onLogout }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:5000/api/users");
+      const response = await axios.get("https://aicodeproject.onrender.com/api/users");
       setUsers(response.data);
     } catch (error) {
       console.error("Error fetching users:", error);
