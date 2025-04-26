@@ -17,7 +17,7 @@ const Login = ({ setUser }) => {
     const endpoint = isSignUp ? "signup" : "login";
   
     try {
-      const response = await axios.post(`http://localhost:5000/api/${endpoint}`, {
+      const response = await axios.post(`https://aicodeproject.onrender.com/api/${endpoint}`, {
         username,
         email,
         password,
